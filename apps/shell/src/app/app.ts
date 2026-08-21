@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcome } from './nx-welcome';
+import { ThemeService } from '@t10go-design-system';
 
 @Component({
   imports: [NxWelcome, RouterModule],
@@ -9,5 +10,5 @@ import { NxWelcome } from './nx-welcome';
   styleUrl: './app.css',
 })
 export class App {
-  protected title = 'shell';
+  private readonly themeService = inject(ThemeService);
 }

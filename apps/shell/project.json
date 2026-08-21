@@ -64,12 +64,11 @@
             "input": "apps/shell/public"
           }
         ],
-        "styles": [
-          "apps/shell/src/styles.scss"
-        ],
-        "polyfills": [
-          "es-module-shims"
-        ]
+        "styles": ["apps/shell/src/styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["shared/t10go-design-system/src/styles"]
+        },
+        "polyfills": ["es-module-shims"]
       },
       "configurations": {
         "production": {
