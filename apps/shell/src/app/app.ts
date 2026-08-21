@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ThemeService } from '@t10go-design-system';
 import { AppShell } from './layout/app-shell/app-shell';
-import { T10goIconRegistry } from '@t10go-icons';
 
 @Component({
   imports: [RouterModule, AppShell],
@@ -12,9 +11,4 @@ import { T10goIconRegistry } from '@t10go-icons';
 })
 export class App {
   private readonly themeService = inject(ThemeService);
-  private readonly iconRegistry = inject(T10goIconRegistry);
-
-  constructor() {
-    this.iconRegistry.register();
-  }
 }

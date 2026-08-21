@@ -28,6 +28,7 @@ export class T10goIconRegistry {
   }
 
   private registerIcon(name: string): void {
+    console.log('REGISTERING', `t10go-${name}`);
     this.iconRegistry.addSvgIcon(
       `t10go-${name}`,
       this.sanitizer.bypassSecurityTrustResourceUrl(
