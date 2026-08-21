@@ -62,6 +62,11 @@
           {
             "glob": "**/*",
             "input": "apps/shell/public"
+          },
+          {
+            "glob": "**/*.svg",
+            "input": "shared/t10go-icons/src/lib/icons",
+            "output": "assets/t10go-icons"
           }
         ],
         "styles": ["apps/shell/src/styles.scss"],

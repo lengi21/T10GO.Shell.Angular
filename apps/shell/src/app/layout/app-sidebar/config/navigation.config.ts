@@ -10,7 +10,7 @@ export const NAVIGATION_ITEMS: readonly NavigationItem[] = [
   {
     id: 'weddings',
     label: 'Weddings',
-    icon: 'favorite',
+    icon: 'wedding',
     children: [
       {
         id: 'weddings-list',
@@ -27,7 +27,7 @@ export const NAVIGATION_ITEMS: readonly NavigationItem[] = [
       {
         id: 'weddings-calendar',
         label: 'Calendar',
-        icon: 'calendar_month',
+        icon: 'calendar',
         route: '/weddings/calendar',
       },
     ],
@@ -35,7 +35,7 @@ export const NAVIGATION_ITEMS: readonly NavigationItem[] = [
   {
     id: 'guests',
     label: 'Guests',
-    icon: 'group',
+    icon: 'guests',
     route: '/guests',
   },
   {

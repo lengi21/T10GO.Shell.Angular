@@ -1,0 +1,21 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "name": "@t10go-icons",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^22.0.0",
+    "@angular/core": "^22.0.0"
+  },
+  "sideEffects": false,
+  "dest": "../../dist/libs/icons",
+  "lib": {
+    "entryFile": "src/index.ts"
+  },
+  "assets": [
+    {
+      "glob": "**/*.svg",
+      "input": "src/lib/icons",
+      "output": "assets/t10go-icons"
+    }
+  ]
+}

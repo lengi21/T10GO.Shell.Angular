@@ -2,6 +2,7 @@
   "extends": "./tsconfig.app.json",
   "files": [
     "../../shared/t10go-env-loader/src/index.ts",
+    "../../shared/t10go-icons/src/index.ts",
     "../../shared/t10go-design-system/src/index.ts"
   ],
   "include": [

@@ -10,24 +10,23 @@
           [routerLink]="item.route ?? '/'"
           [attr.aria-label]="item.label"
         >
-          <span
+          <mat-icon
             class="app-sidebar__icon"
+            [svgIcon]="'t10go-' + item.icon"
             aria-hidden="true"
-          >
-            {{ item.icon }}
-          </span>
+          />
 
           <span class="app-sidebar__label">
-            {{ item.label }}
-          </span>
+    {{ item.label }}
+  </span>
 
           @if (item.children?.length) {
-            <span
+            <mat-icon
               class="app-sidebar__expand-icon"
               aria-hidden="true"
             >
-              ▾
-            </span>
+              expand_more
+            </mat-icon>
           }
         </a>
       </div>

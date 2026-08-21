@@ -28,7 +28,8 @@
       "@t10go-federation-loader": [
         "./shared/t10go-federation-loader/src/index.ts"
       ],
-      "@t10go-design-system": ["./shared/t10go-design-system/src/index.ts"]
+      "@t10go-design-system": ["./shared/t10go-design-system/src/index.ts"],
+      "@t10go-icons": ["./shared/t10go-icons/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
