@@ -1,4 +1,4 @@
-import { FederationManifest, NativeFederationManifest } from '../../interfaces';
+import { FederationManifest, NativeFederationManifest } from '../interfaces';
 
 export function toNativeFederationManifest(
   manifest: FederationManifest,

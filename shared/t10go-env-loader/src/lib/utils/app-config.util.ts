@@ -1,4 +1,4 @@
-import { AppConfig } from '../../interfaces';
+import { AppConfig } from '../interfaces';
 import { validateAppConfig } from './validate-app-config.util';
 
 const CONFIG_URL = '/config/config.json';

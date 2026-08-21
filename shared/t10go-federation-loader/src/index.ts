@@ -1,1 +1,3 @@
-export * from './lib/t10go-federation-loader/t10go-federation-loader';
+export * from './lib/interfaces';
+export * from './lib/utils';
+export * from './lib/types';

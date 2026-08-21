@@ -1,5 +1,5 @@
 import { FederationManifest } from '../federation';
-import { AppConfig } from '../config';
+import { AppConfig } from './index';
 
 export interface LoadedApplicationConfiguration {
   config: AppConfig;

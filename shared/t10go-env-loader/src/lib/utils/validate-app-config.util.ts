@@ -1,4 +1,4 @@
-import { AppConfig } from '../../interfaces';
+import { AppConfig } from '../interfaces';
 
 export function validateAppConfig(value: unknown): asserts value is AppConfig {
   if (!value || typeof value !== 'object') {
