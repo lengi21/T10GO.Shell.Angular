@@ -1,24 +1,14 @@
-export function renderConfigurationError(error: unknown): void {
-  const root = document.body;
-
-  root.innerHTML = `
-    <div
-      style="
-        padding: 40px;
-        font-family: sans-serif;
-      "
-    >
-      <h1>
-        Application configuration error
-      </h1>
-
+export function renderStartupError(error: unknown): void {
+  document.body.innerHTML = `
+    <div style="padding: 2rem; font-family: sans-serif;">
+      <h1>Application startup failed</h1>
       <p>
-        The application could not be started.
+        The application could not be started because its
+        runtime configuration could not be loaded.
       </p>
-
-      <pre>
-${escapeHtml(error instanceof Error ? error.message : String(error))}
-      </pre>
+      <pre>${escapeHtml(
+        error instanceof Error ? error.message : String(error),
+      )}</pre>
     </div>
   `;
 }
