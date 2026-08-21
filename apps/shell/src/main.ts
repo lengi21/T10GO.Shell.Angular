@@ -1,27 +1,21 @@
-import { initFederation } from '@angular-architects/native-federation';
 import { bootstrapApplication } from '@angular/platform-browser';
 
+import { createAppConfig } from './app/app.config';
+import { loadAppConfig } from '@t10go-env-loader';
+import { renderConfigurationError } from './run-cofig-error';
 import { App } from './app/app';
-import { appConfig } from './app/app.config';
 
-import { loadAppConfig } from './app/config/app-config.loader';
 
-import { loadFederationManifest } from './app/config/federation-loader';
+async function bootstrap(): Promise<void> {
+  try {
+    const config = await loadAppConfig();
 
-async function main() {
-  const config = await loadAppConfig();
+    await bootstrapApplication(App, createAppConfig(config));
+  } catch (error) {
+    console.error('Application bootstrap failed.', error);
 
-  const manifest = await loadFederationManifest();
-
-  const nativeManifest = createNativeFederationManifest(manifest);
-
-  await initFederation(nativeManifest);
-
-  await bootstrapApplication(AppComponent, appConfig(config, manifest));
+    renderConfigurationError(error);
+  }
 }
 
-main().catch((error) => {
-  console.error('Application bootstrap failed', error);
-
-  renderFatalConfigurationError(error);
-});
+bootstrap();
