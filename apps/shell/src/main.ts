@@ -1,11 +1,6 @@
-import { renderStartupError } from './run-cofig-error';
-import { loadAppConfig } from '@t10go-env-loader';
-import { bootstrap } from './bootstrap';
+import { initFederation } from '@angular-architects/native-federation';
 
-loadAppConfig()
-  .then((config) => bootstrap(config))
-  .catch((error) => {
-    console.error('Application startup failed', error);
-
-    renderStartupError(error);
-  });
+initFederation()
+  .catch((err) => console.error(err))
+  .then(() => import('./bootstrap'))
+  .catch((err) => console.error(err));

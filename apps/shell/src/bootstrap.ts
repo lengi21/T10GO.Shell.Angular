@@ -2,9 +2,18 @@ import { bootstrapApplication } from '@angular/platform-browser';
 
 import { createAppConfig } from './app/app.config';
 import { App } from './app/app';
-import { AppConfig } from '@t10go-env-loader';
+import { loadAppConfig } from '@t10go-env-loader';
+import { renderStartupError } from './run-cofig-error';
 
 
-export async function bootstrap(config: AppConfig): Promise<void> {
+async function bootstrap(): Promise<void> {
+  const config = await loadAppConfig();
+
   await bootstrapApplication(App, createAppConfig(config));
 }
+
+bootstrap().catch((error) => {
+  console.error('Application bootstrap failed', error);
+
+  renderStartupError(error);
+});
