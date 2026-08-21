@@ -1,0 +1,12 @@
+{
+  "environment": "dev",
+
+  "baseUrl": "http://localhost:4200",
+
+  "shellUrl": "http://localhost:4200",
+
+  "services": {
+    "api": "http://localhost:5000",
+    "auth": "http://localhost:5001"
+  }
+}

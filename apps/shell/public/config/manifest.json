@@ -1,0 +1,55 @@
+{
+  "$schema": "./manifest.schema.json",
+
+  "version": "1.0",
+
+  "applications": {
+    "wedding-manager": {
+      "id": "wedding-manager",
+      "name": "Wedding Manager",
+
+      "repository": "T10GO.WeddingManager.Angular",
+
+      "remote": {
+        "name": "wedding-manager",
+        "entry": "https://test-wedding.t10go.com/remoteEntry.json"
+      },
+
+      "routes": [
+        {
+          "id": "wedding-manager",
+          "path": "wedding",
+          "type": "children",
+          "exposedModule": "./routes",
+          "exportName": "WEDDING_MANAGER_ROUTES"
+        }
+      ],
+
+      "exposes": {
+        "calculator": {
+          "exposedModule": "./WeddingCalculator",
+          "exportName": "WeddingCalculatorComponent"
+        }
+      },
+
+      "navigation": {
+        "sidebar": {
+          "enabled": true,
+          "label": "Wedding Manager",
+          "icon": "wedding",
+          "route": "/wedding"
+        }
+      }
+    }
+  },
+
+  "slots": {
+    "sidebar": [
+      {
+        "id": "wedding-calculator",
+        "application": "wedding-manager",
+        "expose": "calculator"
+      }
+    ]
+  }
+}
