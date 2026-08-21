@@ -1,0 +1,34 @@
+@use 'responsive/responsive' as bp;
+
+:host {
+  display: block;
+}
+
+.app-shell {
+  min-height: 100dvh;
+  background: var(--app-surface-page);
+  color: var(--app-text-primary);
+}
+
+.app-shell__main {
+  min-height: 100dvh;
+
+  padding-top: 64px;
+  padding-left: 64px;
+
+  transition:
+    padding-left var(--app-transition-normal);
+
+  @include bp.breakpoint-down(lg) {
+    padding-left: 0;
+  }
+}
+
+.app-shell__content {
+  min-height: calc(100dvh - 64px);
+  padding: var(--app-space-4);
+
+  @include bp.breakpoint-up(lg) {
+    padding: var(--app-space-6);
+  }
+}

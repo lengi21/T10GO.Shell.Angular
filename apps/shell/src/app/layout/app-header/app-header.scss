@@ -1,0 +1,117 @@
+.app-header {
+  position: fixed;
+  z-index: 100;
+
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-inline: var(--app-space-4);
+
+  background: var(--app-surface-elevated);
+  color: var(--app-text-primary);
+
+  border-bottom: 1px solid var(--app-border);
+}
+
+.app-header__brand {
+  display: flex;
+  align-items: center;
+}
+
+.app-header__logo {
+  display: flex;
+  align-items: center;
+
+  font-family: var(--app-font-family);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+
+  color: var(--app-primary);
+}
+
+.app-header__actions {
+  display: flex;
+  align-items: center;
+}
+
+.app-header__user {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-3);
+
+  min-height: 44px;
+  padding: var(--app-space-2);
+
+  border: 0;
+  border-radius: var(--app-radius-md);
+
+  background: transparent;
+  color: inherit;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--app-transition-fast);
+
+  &:hover {
+    background: color-mix(
+      in srgb,
+      var(--app-primary) 8%,
+      transparent
+    );
+  }
+}
+
+.app-header__avatar {
+  display: grid;
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  background: var(--app-primary);
+  color: var(--app-on-primary);
+
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.app-header__user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  line-height: 1.2;
+}
+
+.app-header__user-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.app-header__user-email {
+  font-size: 0.75rem;
+  color: var(--app-text-muted);
+}
+
+.app-header__chevron {
+  font-size: 1rem;
+  color: var(--app-text-secondary);
+}
+
+@media (max-width: 767.98px) {
+  .app-header__user-info,
+  .app-header__chevron {
+    display: none;
+  }
+}
