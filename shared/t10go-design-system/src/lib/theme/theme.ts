@@ -1,5 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 
 export type AppTheme = 'system' | 'light' | 'dark';
 
@@ -16,18 +16,14 @@ export class ThemeService {
     ? window.matchMedia('(prefers-color-scheme: dark)')
     : null;
 
-  private currentTheme: AppTheme = 'system';
+  readonly theme = signal<AppTheme>('system');
 
   constructor() {
     this.initialize();
   }
 
-  get theme(): AppTheme {
-    return this.currentTheme;
-  }
-
   setTheme(theme: AppTheme): void {
-    this.currentTheme = theme;
+    this.theme.set(theme);
 
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem(STORAGE_KEY, theme);
@@ -37,44 +33,43 @@ export class ThemeService {
   }
 
   private initialize(): void {
-    if (!isPlatformBrowser(this.platformId)) {
-      this.applyTheme();
-      return;
-    }
+    if (isPlatformBrowser(this.platformId)) {
+      const storedTheme = localStorage.getItem(STORAGE_KEY);
 
-    const storedTheme = localStorage.getItem(STORAGE_KEY);
+      if (
+        storedTheme === 'system' ||
+        storedTheme === 'light' ||
+        storedTheme === 'dark'
+      ) {
+        this.theme.set(storedTheme);
+      }
 
-    if (
-      storedTheme === 'system' ||
-      storedTheme === 'light' ||
-      storedTheme === 'dark'
-    ) {
-      this.currentTheme = storedTheme;
+      this.mediaQuery?.addEventListener('change', () => {
+        if (this.theme() === 'system') {
+          this.applyTheme();
+        }
+      });
     }
 
     this.applyTheme();
-
-    this.mediaQuery?.addEventListener('change', () => {
-      if (this.currentTheme === 'system') {
-        this.applyTheme();
-      }
-    });
   }
 
   private applyTheme(): void {
     const resolvedTheme = this.resolveTheme();
 
-    this.document.documentElement.setAttribute('data-theme', resolvedTheme);
+    this.document.documentElement.dataset['theme'] = resolvedTheme;
 
     this.document.documentElement.style.colorScheme = resolvedTheme;
   }
 
   private resolveTheme(): 'light' | 'dark' {
-    if (this.currentTheme === 'light') {
+    const theme = this.theme();
+
+    if (theme === 'light') {
       return 'light';
     }
 
-    if (this.currentTheme === 'dark') {
+    if (theme === 'dark') {
       return 'dark';
     }
 
