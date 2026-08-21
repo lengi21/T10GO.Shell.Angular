@@ -1,0 +1,28 @@
+{
+  "name": "t10go-env-loader",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "shared/t10go-env-loader/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "project": "shared/t10go-env-loader/ng-package.json",
+        "tsConfig": "shared/t10go-env-loader/tsconfig.lib.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "shared/t10go-env-loader/tsconfig.lib.prod.json"
+        },
+        "development": {}
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
