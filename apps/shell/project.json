@@ -65,7 +65,7 @@
           }
         ],
         "styles": [
-          "apps/shell/src/styles.css"
+          "apps/shell/src/styles.scss"
         ],
         "polyfills": [
           "es-module-shims"
