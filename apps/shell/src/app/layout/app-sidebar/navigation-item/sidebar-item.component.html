@@ -7,11 +7,7 @@
         [attr.aria-label]="item().label"
       >
         @if (item().icon) {
-          <mat-icon
-            class="navigation-item__icon"
-            [svgIcon]="'t10go-' + item().icon"
-            aria-hidden="true"
-          />
+          <span class="material-icons md-24">{{item().icon}}</span>
         }
 
         <span class="navigation-item__label">
@@ -25,11 +21,7 @@
         [attr.aria-label]="item().label"
       >
         @if (item().icon) {
-          <mat-icon
-            class="navigation-item__icon"
-            [svgIcon]="'t10go-' + item().icon"
-            aria-hidden="true"
-          />
+          <span class="material-icons md-24">{{item().icon}}</span>
         }
 
         <span class="navigation-item__label">
@@ -37,10 +29,7 @@
         </span>
 
         @if (item().children?.length) {
-          <mat-icon
-            class="navigation-item__expand-icon"
-            aria-hidden="true"
-          >expand_more</mat-icon>
+          <span class="material-icons md-24">expand_more</span>
         }
       </button>
     }

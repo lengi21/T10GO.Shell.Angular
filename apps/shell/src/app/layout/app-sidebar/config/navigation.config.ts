@@ -11,44 +11,32 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     id: 'weddings',
     label: 'Weddings',
-    icon: 'wedding',
+    icon: 'church',
     children: [
       {
         id: 'weddings-overview',
         label: 'Overview',
+        icon: 'dashboard',
         route: '/weddings',
       },
       {
         id: 'weddings-guests',
         label: 'Guests',
+        icon: 'group',
         route: '/weddings/guests',
       },
       {
         id: 'weddings-events',
         label: 'Events',
+        icon: 'events',
         route: '/weddings/events',
+      },
+      {
+        id: 'calendar',
+        label: 'Calendar',
+        icon: 'calendar',
+        route: 'weddings/calendar',
       },
     ],
   },
-
-  {
-    id: 'guests',
-    label: 'Guests',
-    icon: 'guests',
-    route: '/guests',
-  },
-
-  {
-    id: 'calendar',
-    label: 'Calendar',
-    icon: 'calendar',
-    route: '/calendar',
-  },
-
-  {
-    id: 'settings',
-    label: 'Settings',
-    icon: 'settings',
-    route: '/settings',
-  },
-]
+];

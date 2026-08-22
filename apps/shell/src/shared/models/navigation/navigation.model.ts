@@ -4,7 +4,7 @@ export type T10goNavigationIcon =
 export interface NavigationItem {
   readonly id: string;
   readonly label: string;
-  readonly icon?: T10goNavigationIcon;
+  readonly icon?: T10goNavigationIcon | string;
 
   /**
    * Route of this item.
