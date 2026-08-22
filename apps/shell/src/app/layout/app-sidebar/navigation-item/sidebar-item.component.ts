@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, forwardRef, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, input, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { NavigationItem } from '../../../../shared';
@@ -12,4 +12,13 @@ import { NavigationItem } from '../../../../shared';
 })
 export class SidebarItem {
   readonly item = input.required<NavigationItem>();
+  readonly expanded = signal(false);
+
+  toggleExpanded(): void {
+    if (!this.item().children?.length) {
+      return;
+    }
+
+    this.expanded.update((value) => !value);
+  }
 }
