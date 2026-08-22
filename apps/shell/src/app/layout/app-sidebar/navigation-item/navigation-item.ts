@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 
-import type { NavigationItem } from '../config/navigation.model';
+import type { NavigationItem } from '../../../../shared';
 
 @Component({
   selector: 'app-navigation-item',
