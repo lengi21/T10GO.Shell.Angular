@@ -26,17 +26,11 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
         route: '/weddings/guests',
       },
       {
-        id: 'weddings-events',
-        label: 'Events',
-        icon: 'events',
-        route: '/weddings/events',
-      },
-      {
-        id: 'calendar',
-        label: 'Calendar',
-        icon: 'calendar',
-        route: 'weddings/calendar',
-      },
+        id: 'weddings-guests2',
+        label: 'Guests2',
+        icon: 'group',
+        route: '/weddings/guests2',
+      }
     ],
   },
 ];

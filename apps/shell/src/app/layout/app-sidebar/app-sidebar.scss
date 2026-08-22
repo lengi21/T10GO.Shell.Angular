@@ -15,6 +15,7 @@
   pointer-events: none;
 
   transition: width var(--app-transition-normal);
+  background: var(--app-surface-elevated);
 }
 
 .app-sidebar {
@@ -28,7 +29,7 @@
 
   overflow: hidden;
 
-  background: var(--app-surface-card);
+  background: var(--app-surface-elevated);
   border-right: 1px solid var(--app-border-subtle);
   box-shadow: var(--app-shadow-md);
 
