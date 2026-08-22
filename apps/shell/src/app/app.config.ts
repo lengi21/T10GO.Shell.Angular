@@ -8,6 +8,7 @@ import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { APP_CONFIG, AppConfig, EnvironmentManager } from '@t10go-env-loader';
 import { provideT10goIcons } from '@t10go-icons';
+import { provideHttpClient } from '@angular/common/http';
 
 
 export function createAppConfig(config: AppConfig): ApplicationConfig {
@@ -20,7 +21,8 @@ export function createAppConfig(config: AppConfig): ApplicationConfig {
       provideAppInitializer(() => {
         inject(EnvironmentManager).initialize(config);
       }),
-      provideT10goIcons(),
+      // provideT10goIcons(),
+      provideHttpClient(),
       provideBrowserGlobalErrorListeners(),
       provideRouter(appRoutes),
     ],

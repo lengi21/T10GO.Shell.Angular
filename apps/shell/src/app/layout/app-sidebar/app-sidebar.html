@@ -1,35 +1,54 @@
-<aside class="app-sidebar">
-  <nav
-    class="app-sidebar__nav"
-    aria-label="Main navigation"
-  >
-    @for (item of navigationItems; track item.id) {
-      <div class="app-sidebar__item">
-        <a
-          class="app-sidebar__link"
-          [routerLink]="item.route ?? '/'"
-          [attr.aria-label]="item.label"
-        >
+<nav
+  class="app-sidebar__navigation"
+  aria-label="Main navigation"
+>
+  @for (
+    item of navigationItems;
+    track item.id
+    ) {
+    <div class="navigation-item">
+
+      <div class="navigation-item__row">
+
+        @if (item.icon) {
           <mat-icon
-            class="app-sidebar__icon"
+            class="navigation-item__icon"
             [svgIcon]="'t10go-' + item.icon"
             aria-hidden="true"
           />
+        }
 
-          <span class="app-sidebar__label">
-    {{ item.label }}
-  </span>
+        @if (item.route) {
+          <a
+            class="navigation-item__link"
+            [routerLink]="item.route"
+          >
+        <span class="navigation-item__label">
+          {{ item.label }}
+        </span>
+          </a>
+        } @else {
+          <span class="navigation-item__label">
+        {{ item.label }}
+      </span>
+        }
 
-          @if (item.children?.length) {
-            <mat-icon
-              class="app-sidebar__expand-icon"
-              aria-hidden="true"
-            >
-              expand_more
-            </mat-icon>
-          }
-        </a>
       </div>
-    }
-  </nav>
-</aside>
+
+      @if (item.children?.length) {
+        <div class="navigation-item__children">
+          @for (
+            child of item.children;
+            track child.id
+            ) {
+            <app-sidebar-item
+              [item]="child"
+            />
+          }
+        </div>
+      }
+
+    </div>
+
+  }
+</nav>

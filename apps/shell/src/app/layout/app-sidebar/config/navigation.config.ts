@@ -1,47 +1,54 @@
 import { NavigationItem } from '../../../../shared';
 
-export const NAVIGATION_ITEMS: readonly NavigationItem[] = [
+export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     id: 'dashboard',
     label: 'Dashboard',
     icon: 'dashboard',
     route: '/dashboard',
   },
+
   {
     id: 'weddings',
     label: 'Weddings',
     icon: 'wedding',
     children: [
       {
-        id: 'weddings-list',
-        label: 'All weddings',
-        icon: 'list',
+        id: 'weddings-overview',
+        label: 'Overview',
         route: '/weddings',
       },
       {
-        id: 'weddings-new',
-        label: 'Create wedding',
-        icon: 'add',
-        route: '/weddings/new',
+        id: 'weddings-guests',
+        label: 'Guests',
+        route: '/weddings/guests',
       },
       {
-        id: 'weddings-calendar',
-        label: 'Calendar',
-        icon: 'calendar',
-        route: '/weddings/calendar',
+        id: 'weddings-events',
+        label: 'Events',
+        route: '/weddings/events',
       },
     ],
   },
+
   {
     id: 'guests',
     label: 'Guests',
     icon: 'guests',
     route: '/guests',
   },
+
+  {
+    id: 'calendar',
+    label: 'Calendar',
+    icon: 'calendar',
+    route: '/calendar',
+  },
+
   {
     id: 'settings',
     label: 'Settings',
     icon: 'settings',
     route: '/settings',
   },
-];
+]

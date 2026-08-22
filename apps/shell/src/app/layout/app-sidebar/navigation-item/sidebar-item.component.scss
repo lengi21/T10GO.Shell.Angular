@@ -1,0 +1,55 @@
+:host {
+  display: block;
+}
+
+.navigation-item {
+  display: block;
+}
+
+.navigation-item__link {
+  display: flex;
+  align-items: center;
+
+  min-height: 44px;
+
+  padding: 0 12px;
+
+  gap: 12px;
+
+  color: inherit;
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  transition:
+    background-color var(--app-transition-fast),
+    color var(--app-transition-fast);
+}
+
+.navigation-item__link:hover {
+  background-color: var(--app-surface-hover);
+}
+
+.navigation-item__icon {
+  flex: 0 0 24px;
+
+  width: 24px;
+  height: 24px;
+}
+
+.navigation-item__label {
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.navigation-item__children {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 36px;
+
+  gap: 2px;
+}
