@@ -38,8 +38,12 @@
     color var(--app-transition-fast);
 }
 
+.navigation-item__button:disabled {
+  cursor: default;
+}
+
 .navigation-item__link:hover,
-.navigation-item__button:hover {
+.navigation-item__button:not(:disabled):hover {
   background: color-mix(
     in srgb,
     var(--app-primary) 8%,
@@ -48,22 +52,13 @@
   color: var(--app-primary);
 }
 
-.navigation-item__icon {
-  flex: 0 0 24px;
-  width: 24px;
-  height: 24px;
-}
-
 .navigation-item__label {
   min-width: 0;
   max-width: 0;
   overflow: hidden;
-
   opacity: 0;
-
   white-space: nowrap;
   text-overflow: ellipsis;
-
   transition:
     max-width var(--app-transition-normal),
     opacity var(--app-transition-fast);
@@ -74,29 +69,31 @@
   width: 20px;
   height: 20px;
   margin-left: auto;
-
   opacity: 0;
+  transition:
+    opacity var(--app-transition-fast),
+    transform var(--app-transition-fast);
+}
 
-  transition: opacity var(--app-transition-fast);
+.navigation-item__expand-icon--expanded {
+  transform: rotate(180deg);
 }
 
 .navigation-item__children {
-  display: none;
-  flex-direction: column;
-  gap: var(--app-space-1);
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
   padding-left: 36px;
+  transition: grid-template-rows var(--app-transition-normal);
 }
 
-.app-sidebar :host {
-  --sidebar-expanded: 1;
+.navigation-item__children--expanded {
+  grid-template-rows: 1fr;
 }
 
-:host-context(.app-sidebar) .navigation-item__label {
-  max-width: 0;
-}
-
-:host-context(.app-sidebar) .navigation-item__children {
-  display: none;
+.navigation-item__children > * {
+  min-height: 0;
+  overflow: hidden;
 }
 
 :host-context(.app-sidebar:hover) .navigation-item__label,
@@ -110,14 +107,10 @@
   opacity: 1;
 }
 
-:host-context(.app-sidebar:hover) .navigation-item__children,
-:host-context(.app-sidebar:focus-within) .navigation-item__children {
-  display: flex;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .navigation-item__label,
-  .navigation-item__expand-icon {
+  .navigation-item__expand-icon,
+  .navigation-item__children {
     transition: none;
   }
 }
