@@ -4,6 +4,7 @@
 
 .navigation-item {
   display: block;
+  width: 100%;
 }
 
 .navigation-item__row {
@@ -55,8 +56,17 @@
 
 .navigation-item__label {
   min-width: 0;
+  max-width: 0;
   overflow: hidden;
+
+  opacity: 0;
+
+  white-space: nowrap;
   text-overflow: ellipsis;
+
+  transition:
+    max-width var(--app-transition-normal),
+    opacity var(--app-transition-fast);
 }
 
 .navigation-item__expand-icon {
@@ -64,11 +74,50 @@
   width: 20px;
   height: 20px;
   margin-left: auto;
+
+  opacity: 0;
+
+  transition: opacity var(--app-transition-fast);
 }
 
 .navigation-item__children {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: var(--app-space-1);
   padding-left: 36px;
+}
+
+.app-sidebar :host {
+  --sidebar-expanded: 1;
+}
+
+:host-context(.app-sidebar) .navigation-item__label {
+  max-width: 0;
+}
+
+:host-context(.app-sidebar) .navigation-item__children {
+  display: none;
+}
+
+:host-context(.app-sidebar:hover) .navigation-item__label,
+:host-context(.app-sidebar:focus-within) .navigation-item__label {
+  max-width: 180px;
+  opacity: 1;
+}
+
+:host-context(.app-sidebar:hover) .navigation-item__expand-icon,
+:host-context(.app-sidebar:focus-within) .navigation-item__expand-icon {
+  opacity: 1;
+}
+
+:host-context(.app-sidebar:hover) .navigation-item__children,
+:host-context(.app-sidebar:focus-within) .navigation-item__children {
+  display: flex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation-item__label,
+  .navigation-item__expand-icon {
+    transition: none;
+  }
 }
