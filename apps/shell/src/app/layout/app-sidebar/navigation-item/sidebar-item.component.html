@@ -19,6 +19,9 @@
         class="navigation-item__button"
         type="button"
         [attr.aria-label]="item().label"
+        [attr.aria-expanded]="expanded()"
+        [disabled]="!item().children?.length"
+        (click)="toggleExpanded()"
       >
         @if (item().icon) {
           <span class="material-icons md-24">{{item().icon}}</span>
@@ -29,14 +32,22 @@
         </span>
 
         @if (item().children?.length) {
-          <span class="material-icons md-24">expand_more</span>
+          <span
+            class="material-icons md-24 navigation-item__expand-icon"
+            [class.navigation-item__expand-icon--expanded]="expanded()"
+            aria-hidden="true"
+          >expand_more</span>
         }
       </button>
     }
   </div>
 
   @if (item().children?.length) {
-    <div class="navigation-item__children">
+    <div
+      class="navigation-item__children"
+      [class.navigation-item__children--expanded]="expanded()"
+      [attr.aria-hidden]="!expanded()"
+    >
       @for (child of item().children; track child.id) {
         <app-sidebar-item [item]="child" />
       }
