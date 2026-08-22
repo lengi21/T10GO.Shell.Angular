@@ -1,0 +1,58 @@
+<div class="navigation-item">
+  <div class="navigation-item__row">
+    @if (item().route) {
+      <a
+        class="navigation-item__link"
+        [routerLink]="item().route"
+        [attr.aria-label]="item().label"
+      >
+        @if (item().icon) {
+          <mat-icon
+            class="navigation-item__icon"
+            [svgIcon]="'t10go-' + item().icon"
+            aria-hidden="true"
+          />
+        }
+
+        <span class="navigation-item__label">
+          {{ item().label }}
+        </span>
+      </a>
+    } @else {
+      <button
+        class="navigation-item__button"
+        type="button"
+        [attr.aria-label]="item().label"
+      >
+        @if (item().icon) {
+          <mat-icon
+            class="navigation-item__icon"
+            [svgIcon]="'t10go-' + item().icon"
+            aria-hidden="true"
+          />
+        }
+
+        <span class="navigation-item__label">
+          {{ item().label }}
+        </span>
+
+        @if (item().children?.length) {
+          <mat-icon
+            class="navigation-item__expand-icon"
+            aria-hidden="true"
+          >
+            expand_more
+          </mat-icon>
+        }
+      </button>
+    }
+  </div>
+
+  @if (item().children?.length) {
+    <div class="navigation-item__children">
+      @for (child of item().children; track child.id) {
+        <app-navigation-item [item]="child" />
+      }
+    </div>
+  }
+</div>
