@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NAVIGATION_ITEMS } from './config/navigation.config';
 import { RouterLink } from '@angular/router';
-import { MatIcon } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [RouterLink, MatIcon],
+  imports: [RouterLink, MatIconModule],
   templateUrl: './app-sidebar.html',
   styleUrl: './app-sidebar.scss',
 })

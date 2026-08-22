@@ -3,5 +3,12 @@
   "dest": "../../dist/shared/t10go-icons",
   "lib": {
     "entryFile": "src/index.ts"
-  }
+  },
+  "assets": [
+    {
+      "glob": "**/*.svg",
+      "input": "src/lib/icons",
+      "output": "assets/t10go-icons"
+    }
+  ]
 }
