@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { NavigationItem } from '../../../../shared';
@@ -8,6 +8,7 @@ import { NavigationItem } from '../../../../shared';
   imports: [RouterLink, MatIconModule],
   templateUrl: './sidebar-item.component.html',
   styleUrl: './sidebar-item.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarItem {
   readonly item = input.required<NavigationItem>();
