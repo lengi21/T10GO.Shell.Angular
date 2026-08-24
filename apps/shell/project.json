@@ -71,7 +71,7 @@
         ],
         "styles": ["apps/shell/src/styles.scss"],
         "stylePreprocessorOptions": {
-          "includePaths": ["shared/t10go-design-system/src/styles"]
+          "includePaths": ["node_modules/@lengi21/t10go-design-system/src/styles"]
         },
         "polyfills": ["es-module-shims"]
       },

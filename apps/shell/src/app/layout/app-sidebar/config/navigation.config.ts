@@ -1,4 +1,4 @@
-import { T10goNavigationItem } from '@t10go-design-system';
+import type { T10goNavigationItem } from '@lengi21/federation-contracts';
 
 export const NAVIGATION_ITEMS: T10goNavigationItem[] = [
   {

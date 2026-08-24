@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ThemeService } from '@t10go-design-system';
+import { ThemeService } from '@lengi21/t10go-design-system';
 import { AppShell } from './layout/app-shell/app-shell';
 
 @Component({

@@ -27,9 +27,7 @@ The shell runs on port `4200`. Federation configuration is in `apps/shell/federa
 
 ```text
 apps/shell/                    Shell composition, routes, and runtime assets
-shared/t10go-design-system/    Reusable components and global style tokens
-shared/t10go-env-loader/       Runtime /config/config.json loader
-shared/t10go-federation-loader/ Federation manifest types and utilities
+node_modules/@lengi21/...      Published shared UI, configuration, and federation packages
 shared/t10go-icons/            T10GO SVG icon assets
 packages/                      Existing Nx starter libraries; assess before extending
 HISTORY.md                     Technical decision log
@@ -50,7 +48,7 @@ The pre-federation path (`main.ts` and `federation.ts`) must not statically impo
 
 `AppShell` composes the header, sidebar, and router outlet. The reusable sidebar is fixed on the left: content reserves its collapsed width, while hover/focus expansion overlays content. Each item with children owns its own vertical expansion state.
 
-Use the global layout variables defined in `shared/t10go-design-system/src/styles/tokens/_layout.tokens.scss`:
+Use the global layout variables exported by `@lengi21/t10go-design-system`:
 
 ```css
 --app-header-height: 45px;
@@ -75,7 +73,7 @@ When adding a Wedding Manager route, update both its exposed `WEDDING_MANAGER_RO
 
 ### Design system
 
-The public API is exported from `shared/t10go-design-system/src/index.ts`. Current reusable primitives include:
+The public API is exported by `@lengi21/t10go-design-system`. Current reusable primitives include:
 
 - `ThemeService`
 - `T10goSidebarComponent` and `T10goNavigationItem`
@@ -84,13 +82,13 @@ The public API is exported from `shared/t10go-design-system/src/index.ts`. Curre
 - `T10goSliderComponent`
 - `T10goDropdownComponent` and `T10goDropdownOption`
 
-New text, number, autocomplete, and other single-value controls should extend `T10goInputBase<T>` and use `T10goFieldComponent`. Multi-select remains a separate future control. See the [design-system README](shared/t10go-design-system/README.md) for component details.
+New text, number, autocomplete, and other single-value controls should extend `T10goInputBase<T>` and use `T10goFieldComponent`. Multi-select remains a separate future control. Package source and release instructions live in `../T10GO.Shared.Angular`.
 
 ## Change rules
 
 1. Inspect `git status` and `git diff` before modifying a feature.
 2. Preserve the working federation and sidebar behavior unless the task explicitly changes it.
-3. Put reusable controls, form behavior, and theme tokens in `t10go-design-system`; keep shell code focused on app composition.
+3. Put reusable controls, form behavior, and theme tokens in `@lengi21/t10go-design-system`; keep shell code focused on app composition.
 4. Add durable technical decisions to [HISTORY.md](HISTORY.md).
 5. When validation is requested and dependencies are available, use the smallest relevant Nx target.
 
@@ -98,4 +96,4 @@ New text, number, autocomplete, and other single-value controls should extend `T
 
 - [HISTORY.md](HISTORY.md): decisions and constraints that matter beyond individual commits
 - [AGENTS.md](AGENTS.md): future-agent guardrails
-- [Design system README](shared/t10go-design-system/README.md): reusable component API
+- [Shared package README](../T10GO.Shared.Angular/README.md): reusable component API and release workflow

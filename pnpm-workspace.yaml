@@ -7,3 +7,7 @@ allowBuilds:
   msgpackr-extract: false
   nx: false
   unrs-resolver: false
+minimumReleaseAgeExclude:
+  - '@lengi21/federation-contracts@0.1.0'
+  - '@lengi21/t10go-design-system@0.1.0'
+  - '@lengi21/t10go-env-loader@0.1.0'

@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
-import { APP_CONFIG, AppConfig, EnvironmentManager } from '@t10go-env-loader';
+import { APP_CONFIG, AppConfig, EnvironmentManager } from '@lengi21/t10go-env-loader';
 import { provideT10goIcons } from '@t10go-icons';
 import { provideHttpClient } from '@angular/common/http';
 

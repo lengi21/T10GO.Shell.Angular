@@ -28,7 +28,7 @@
 - Preserve the working Angular Native Federation setup. `apps/shell/src/main.ts` loads the manifest and initializes federation before Angular bootstrap.
 - The pre-federation path (`main.ts` and `federation.ts`) must not statically import Angular or workspace libraries; bootstrap Angular only through the existing dynamic import after `initFederation` completes.
 - Do not replace Native Federation, alter sharing settings, or casually modify `apps/shell/public/config/manifest.json`.
-- `shared/t10go-design-system` owns reusable controls, form foundations, theme tokens, sidebar navigation, and context-menu primitives. Shell code composes these primitives rather than duplicating them.
+- `@lengi21/t10go-design-system` owns reusable controls, form foundations, theme tokens, sidebar navigation, and context-menu primitives. Shell code composes these primitives rather than duplicating them; make shared changes in `../T10GO.Shared.Angular` and release a new package version.
 - The sidebar is fixed left: content reserves its collapsed width and hover/focus expansion overlays content. Nested navigation expansion is independent per item.
 - Wedding Manager owns its exposed `WEDDING_MANAGER_ROUTES` and `WEDDING_MANAGER_NAVIGATION_ITEMS`; the shell owns the Weddings parent item and shared sidebar rendering. Keep both remote exposures aligned when adding a Wedding Manager feature route.
 - Use `--app-header-height`, `--app-sidebar-collapsed-width`, `--app-sidebar-expanded-width`, `--app-layout-edge-space`, `--app-layout-floating-radius`, and `--app-sidebar-content-offset` for layout. Do not add duplicate hard-coded values.

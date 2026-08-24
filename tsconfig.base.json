@@ -14,21 +14,6 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "paths": {
-      "@org/api/products": ["./packages/api/products/src/index.ts"],
-      "@org/models": ["./packages/shared/models/src/index.ts"],
-      "@org/shop/data": ["./packages/shop/data/src/index.ts"],
-      "@org/shop/feature-product-detail": [
-        "./packages/shop/feature-product-detail/src/index.ts"
-      ],
-      "@org/shop/feature-products": [
-        "./packages/shop/feature-products/src/index.ts"
-      ],
-      "@org/shop/shared-ui": ["./packages/shop/shared-ui/src/index.ts"],
-      "@t10go-env-loader": ["./shared/t10go-env-loader/src/index.ts"],
-      "@t10go-federation-loader": [
-        "./shared/t10go-federation-loader/src/index.ts"
-      ],
-      "@t10go-design-system": ["./shared/t10go-design-system/src/index.ts"],
       "@t10go-icons": ["./shared/t10go-icons/src/index.ts"]
     }
   },

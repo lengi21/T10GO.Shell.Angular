@@ -6,7 +6,7 @@ import {
   T10goContextMenuComponent,
   T10goDropdownOption,
   T10goDropdownComponent,
-} from '@t10go-design-system';
+} from '@lengi21/t10go-design-system';
 
 @Component({
   selector: 'app-header',

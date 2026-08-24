@@ -22,7 +22,7 @@ This is a decision log, not a release changelog. Add an entry when a change affe
 
 ## 2026-08-24 — Reusable design-system navigation and user menu
 
-**Decision:** Sidebar navigation and context-menu behavior live in `shared/t10go-design-system`; the shell supplies navigation data and product-specific menu content.
+**Decision:** Sidebar navigation and context-menu behavior live in `@lengi21/t10go-design-system`; the shell supplies navigation data and product-specific menu content.
 
 **Reason:** They are reusable layout controls, not shell-specific business features.
 
@@ -89,3 +89,10 @@ This is a decision log, not a release changelog. Add an entry when a change affe
 **Reason:** It centralizes remote routes, exposes, navigation, and slots.
 
 **Impact:** The shell loads this manifest before `initFederation`. The Wedding Manager `./routes` and `./navigation` exposures must stay aligned with it. Verify the deployed remote’s `remoteEntry.json` before changing production integration.
+# 2026-08-24 — Published shared packages adopted
+
+**Decision:** The shell consumes versioned `@lengi21/t10go-design-system`, `@lengi21/t10go-env-loader`, and `@lengi21/federation-contracts` packages from GitHub Packages.
+
+**Impact:** Local duplicate Design System, environment-loader, and federation-contract libraries are removed. Shared changes are made and released from `T10GO.Shared.Angular`.
+
+**Cleanup:** Removed stale Nx starter-library path mappings that referenced directories absent from the shell workspace.

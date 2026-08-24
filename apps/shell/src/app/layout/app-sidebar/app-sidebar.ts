@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { loadRemoteModule } from '@angular-architects/native-federation';
-import { T10goNavigationItem, T10goSidebarComponent } from '@t10go-design-system';
+import { T10goSidebarComponent } from '@lengi21/t10go-design-system';
+import type { T10goNavigationItem } from '@lengi21/federation-contracts';
 
 import { NAVIGATION_ITEMS } from './config/navigation.config';
 
