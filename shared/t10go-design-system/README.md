@@ -2,6 +2,8 @@
 
 Shared, theme-aware standalone Angular components and services for T10GO applications.
 
+Global layout tokens: `--app-header-height`, `--app-sidebar-collapsed-width`, and `--app-sidebar-expanded-width`.
+
 ## Slider
 
 `T10goSliderComponent` is a numeric range control with native keyboard and screen-reader support. It supports both Angular forms and signal two-way binding.

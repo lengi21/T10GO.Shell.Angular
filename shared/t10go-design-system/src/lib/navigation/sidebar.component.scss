@@ -1,6 +1,9 @@
 :host {
-  --t10go-sidebar-collapsed-width: 64px;
-  --t10go-sidebar-expanded-width: 280px;
+  --t10go-sidebar-collapsed-width: var(--app-sidebar-collapsed-width);
+  --t10go-sidebar-expanded-width: var(--app-sidebar-expanded-width);
+  --t10go-sidebar-item-inline-padding: calc(
+    (var(--app-sidebar-collapsed-width) - 24px - var(--app-space-2) - var(--app-space-2)) / 2
+  );
 
   position: fixed;
   z-index: 1000;
@@ -8,7 +11,7 @@
   left: 0;
   display: block;
   width: var(--t10go-sidebar-collapsed-width);
-  height: calc(100dvh - 64px);
+  height: calc(100dvh - var(--app-header-height));
   pointer-events: none;
   transition: width var(--app-transition-normal);
   background: var(--app-surface-elevated);
@@ -28,7 +31,11 @@
 }
 
 .t10go-sidebar:hover,
-.t10go-sidebar:focus-within { width: var(--t10go-sidebar-expanded-width); }
+.t10go-sidebar:focus-within {
+  --t10go-sidebar-item-inline-padding: var(--app-space-3);
+
+  width: var(--t10go-sidebar-expanded-width);
+}
 
 .t10go-sidebar__nav {
   display: flex;

@@ -11,13 +11,13 @@
 .app-shell__main {
   min-height: 100dvh;
 
-  padding-top: 64px;
-  padding-left: 64px;
+  padding-top: var(--app-header-height);
+  padding-left: var(--app-sidebar-collapsed-width);
 
 }
 
 .app-shell__content {
-  min-height: calc(100dvh - 64px);
+  min-height: calc(100dvh - var(--app-header-height));
   padding: var(--app-space-4);
 
 }
