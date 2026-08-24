@@ -7,7 +7,7 @@ import {
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { APP_CONFIG, AppConfig, EnvironmentManager } from '@lengi21/t10go-env-loader';
-import { provideHttpClient } from '@angular/common/http';
+import { provideT10goAuth } from '@lengi21/t10go-auth-client';
 
 
 export function createAppConfig(config: AppConfig): ApplicationConfig {
@@ -20,7 +20,11 @@ export function createAppConfig(config: AppConfig): ApplicationConfig {
       provideAppInitializer(() => {
         inject(EnvironmentManager).initialize(config);
       }),
-      provideHttpClient(),
+      provideT10goAuth({
+        authApiUrl: config.services.auth,
+        shellUrl: config.shellUrl,
+        protectedApiUrls: [config.services.api, config.services['weddingApi']],
+      }),
       provideBrowserGlobalErrorListeners(),
       provideRouter(appRoutes),
     ],

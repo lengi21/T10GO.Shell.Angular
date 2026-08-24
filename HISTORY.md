@@ -12,6 +12,12 @@ This is a decision log, not a release changelog. Add an entry when a change affe
 **Impact:** Affected files, constraints, and follow-up work.
 ```
 
+## 2026-08-25 — Shell-owned Angular authentication
+
+**Decision:** The Shell owns account screens and uses the shared `@lengi21/t10go-auth-client` for email/password sign-in, secure Google PKCE callback handling, session token storage, and sign-out.
+
+**Impact:** Wedding Manager never duplicates a login page. The Shell config explicitly lists the Wedding API as a protected API so requests made by a loaded remote receive the Shell-issued Bearer token.
+
 ## 2026-08-24 — Documentation and decision log established
 
 **Decision:** This repository uses a project-specific README and this durable history file.

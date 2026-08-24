@@ -11,6 +11,7 @@ import {
   T10goSwatchDropdownComponent,
   T10goSwatchDropdownOption,
 } from '@lengi21/t10go-design-system';
+import { T10goAuthSession } from '@lengi21/t10go-auth-client';
 
 @Component({
   selector: 'app-header',
@@ -25,6 +26,7 @@ import {
 })
 export class AppHeader {
   protected readonly themeService = inject(ThemeService);
+  protected readonly authSession = inject(T10goAuthSession);
 
   protected readonly themeOptions: readonly T10goDropdownOption[] = [
     { value: 'system', label: 'System' },
@@ -51,5 +53,10 @@ export class AppHeader {
     if (APP_PALETTES.some((candidate) => candidate.id === palette)) {
       this.themeService.setPalette(palette as AppPalette);
     }
+  }
+
+  protected signOut(): void {
+    this.authSession.logout();
+    window.location.assign('/auth/login');
   }
 }

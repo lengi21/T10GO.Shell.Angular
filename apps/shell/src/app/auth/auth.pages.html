@@ -1,0 +1,25 @@
+<main class="auth-page">
+  <t10go-card class="auth-card" aria-labelledby="auth-title" padding="lg">
+    <p class="auth-card__eyebrow">T10GO Managing Hub</p>
+    <h1 id="auth-title">{{ title() }}</h1>
+    <p class="auth-card__intro">{{ mode === 'login' ? 'Sign in to manage your weddings.' : 'Create your T10GO account to get started.' }}</p>
+
+    @if (confirmationUrl()) {
+      <div class="auth-card__notice">
+        <p>Check your email to confirm your account.</p>
+        <a [href]="confirmationUrl()">Open development confirmation link</a>
+      </div>
+    } @else {
+      <form (submit)="submit($event)">
+        <t10go-text-input label="Email" type="email" autocomplete="email" required [value]="email()" (valueChange)="email.set($event)" name="email" />
+        <t10go-text-input label="Password" type="password" autocomplete="current-password" required [minLength]="10" [value]="password()" (valueChange)="password.set($event)" name="password" />
+        @if (error()) { <p class="auth-card__error" role="alert">{{ error() }}</p> }
+        <t10go-button type="submit" [disabled]="busy()" [block]="true">{{ busy() ? 'Please wait…' : submitLabel() }}</t10go-button>
+      </form>
+
+      <div class="auth-card__divider"><span>or</span></div>
+      <t10go-button variant="secondary" type="button" (click)="signInWithGoogle()" [disabled]="busy()" [block]="true">Continue with Google</t10go-button>
+      <p class="auth-card__switch">{{ mode === 'login' ? 'New to T10GO?' : 'Already have an account?' }} <a [href]="switchUrl()">{{ mode === 'login' ? 'Create an account' : 'Sign in' }}</a></p>
+    }
+  </t10go-card>
+</main>

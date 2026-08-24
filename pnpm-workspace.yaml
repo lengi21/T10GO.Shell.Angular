@@ -11,3 +11,6 @@ minimumReleaseAgeExclude:
   - '@lengi21/federation-contracts@0.1.0'
   - '@lengi21/t10go-design-system@0.1.0 || 0.1.1 || 0.1.2'
   - '@lengi21/t10go-env-loader@0.1.0'
+overrides:
+  '@lengi21/t10go-auth-client': link:../T10GO.Shared.Angular/dist/t10go-auth-client
+  '@lengi21/t10go-design-system': link:../T10GO.Shared.Angular/dist/t10go-design-system

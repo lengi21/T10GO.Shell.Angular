@@ -65,6 +65,10 @@ The header has rounded lower corners. The sidebar is a rounded, vertically cente
 
 `ThemeService` owns the `system`, `light`, and `dark` modes and the selected palette. It persists both preferences and applies the resolved theme and palette to the document. The user menu exposes **Indigo & Teal**, **Evergreen & Clay**, and **Sage & Gold** with visible color swatches; its Settings link targets `/settings`.
 
+### Authentication
+
+Shell owns account routes at `/auth/login`, `/auth/register`, `/auth/callback`, and `/auth/confirmed`. Authentication behavior comes from `@lengi21/t10go-auth-client`: browser tokens are session-only, Google uses Authorization Code + PKCE, and the shared interceptor attaches a token only to the configured Shell and Wedding API URLs. A logged-out Wedding route returns the user to the exact requested Shell URL after signing in.
+
 ### Remote-owned Wedding Manager navigation
 
 The shell owns the `Weddings` parent item and the shared sidebar rendering. Wedding Manager owns and exposes its child item list and routes. The shell dynamically loads `WEDDING_MANAGER_NAVIGATION_ITEMS` from `./navigation` and inserts it beneath Weddings. Clicking Weddings navigates to `/wedding` and expands its loaded child list.

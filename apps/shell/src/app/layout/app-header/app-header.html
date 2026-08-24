@@ -6,6 +6,9 @@
   </div>
 
   <div class="app-header__actions">
+    @if (!authSession.isAuthenticated) {
+      <a class="app-header__sign-in" routerLink="/auth/login">Sign in</a>
+    } @else {
     <t10go-context-menu #userMenu>
     <button
       t10goContextMenuTrigger
@@ -53,7 +56,12 @@
         <span class="material-icons md-24" aria-hidden="true">settings</span>
         Settings
       </a>
+      <button class="app-header__menu-link" type="button" (click)="signOut()">
+        <span class="material-icons md-24" aria-hidden="true">logout</span>
+        Sign out
+      </button>
     </div>
     </t10go-context-menu>
+    }
   </div>
 </header>
