@@ -1,6 +1,6 @@
-import { NavigationItem } from '../../../../shared';
+import { T10goNavigationItem } from '@t10go-design-system';
 
-export const NAVIGATION_ITEMS: NavigationItem[] = [
+export const NAVIGATION_ITEMS: T10goNavigationItem[] = [
   {
     id: 'dashboard',
     label: 'Dashboard',

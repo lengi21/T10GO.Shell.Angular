@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { T10goSidebarComponent } from '@t10go-design-system';
 
 import { NAVIGATION_ITEMS } from './config/navigation.config';
-import { SidebarItem } from './navigation-item/sidebar-item.component';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [SidebarItem],
+  imports: [T10goSidebarComponent],
   templateUrl: './app-sidebar.html',
   styleUrl: './app-sidebar.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

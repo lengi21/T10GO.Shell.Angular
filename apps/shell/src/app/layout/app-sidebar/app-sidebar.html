@@ -1,10 +1,1 @@
-<aside class="app-sidebar">
-  <nav
-    class="app-sidebar__nav"
-    aria-label="Main navigation"
-  >
-    @for (item of navigationItems; track item.id) {
-      <app-sidebar-item [item]="item" />
-    }
-  </nav>
-</aside>
+<t10go-sidebar [items]="navigationItems" />

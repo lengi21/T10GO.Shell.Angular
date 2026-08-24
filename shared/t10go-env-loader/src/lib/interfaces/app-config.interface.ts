@@ -36,7 +36,7 @@ export interface AppServicesConfig {
 
   /**
    * Additional services can be added without
-   * changing the core configuration model.
+   * changing the core configuration models.
    */
   [key: string]: string;
 }

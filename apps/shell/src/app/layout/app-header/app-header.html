@@ -6,10 +6,13 @@
   </div>
 
   <div class="app-header__actions">
+    <t10go-context-menu #userMenu>
     <button
+      t10goContextMenuTrigger
       type="button"
       class="app-header__user"
       aria-label="Open user menu"
+      [attr.aria-expanded]="userMenu.isOpen()"
     >
       <span class="app-header__avatar">
         U
@@ -32,5 +35,23 @@
         ▾
       </span>
     </button>
+    <div t10goContextMenuContent class="app-header__menu" aria-label="User preferences">
+      <t10go-slider
+        label="Theme"
+        [value]="themePosition()"
+        [min]="0"
+        [max]="2"
+        [step]="1"
+        [showValue]="true"
+        [valueFormatter]="formatTheme"
+        (valueChange)="setTheme($event)"
+      />
+
+      <a class="app-header__menu-link" routerLink="/settings" (click)="userMenu.close()">
+        <span class="material-icons md-24" aria-hidden="true">settings</span>
+        Settings
+      </a>
+    </div>
+    </t10go-context-menu>
   </div>
 </header>
