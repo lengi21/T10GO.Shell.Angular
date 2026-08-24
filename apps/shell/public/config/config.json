@@ -6,8 +6,8 @@
   "shellUrl": "http://localhost:4200",
 
   "services": {
-    "api": "https://localhost:7100",
-    "auth": "https://localhost:7100",
-    "weddingApi": "https://localhost:7101"
+    "api": "http://localhost:5100",
+    "auth": "http://localhost:5100",
+    "weddingApi": "http://localhost:5101"
   }
 }
