@@ -58,6 +58,22 @@ This is a decision log, not a release changelog. Add an entry when a change affe
 
 **Impact:** New text, number, and autocomplete controls should extend the base and use the field shell. Multi-select remains a dedicated future component. `ThemeService` remains the only owner of persistence and DOM theme application.
 
+## 2026-08-24 — Wedding Manager owns remote routes and child navigation
+
+**Decision:** Wedding Manager exposes `./routes` with `WEDDING_MANAGER_ROUTES` and `./navigation` with `WEDDING_MANAGER_NAVIGATION_ITEMS`. The shell owns the Weddings parent and shared sidebar presentation.
+
+**Reason:** The remote must control its own subnavigation and routing without duplicating product navigation in the shell.
+
+**Impact:** The shell loads the federation manifest before bootstrapping. It uses `developmentEntry` at `http://localhost:4201/remoteEntry.json` in development and the deployed `entry` otherwise. Clicking Weddings both navigates to `/wedding` and expands its remote-provided children. Keep route and navigation changes aligned in the Wedding Manager repository.
+
+## 2026-08-24 — Pre-federation bootstrap remains dependency-free
+
+**Decision:** `apps/shell/src/main.ts` and its manifest loader do not statically import Angular or workspace libraries before `initFederation` completes.
+
+**Reason:** Native Federation must install its import map before Angular package specifiers can be resolved.
+
+**Impact:** The manifest loader uses browser APIs and a local runtime shape only. Angular bootstraps through the existing dynamic `import('./bootstrap')` step after federation initialization.
+
 ## Existing decision — Native Federation dynamic host
 
 **Decision:** The shell uses `@angular-architects/native-federation` and initializes federation before Angular bootstrap.
@@ -66,10 +82,10 @@ This is a decision log, not a release changelog. Add an entry when a change affe
 
 **Impact:** Do not migrate federation architecture or modify sharing configuration without a concrete requirement and integration validation.
 
-## Existing decision — Federation manifest requires verification before activation
+## Existing decision — Federation manifest is the runtime remote contract
 
 **Decision:** `apps/shell/public/config/manifest.json` is the intended wedding-manager remote contract.
 
 **Reason:** It centralizes remote routes, exposes, navigation, and slots.
 
-**Impact:** The checked-in shell does not currently load this manifest during `initFederation`, and the local remote source may not expose every manifest entry. Verify the deployed remote’s `remoteEntry.json` and align both repositories before enabling or changing dynamic route/slot loading.
+**Impact:** The shell loads this manifest before `initFederation`. The Wedding Manager `./routes` and `./navigation` exposures must stay aligned with it. Verify the deployed remote’s `remoteEntry.json` before changing production integration.

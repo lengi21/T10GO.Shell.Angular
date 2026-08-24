@@ -11,4 +11,9 @@ export interface FederationRemote {
    * URL of the remoteEntry.json.
    */
   entry: string;
+
+  /**
+   * Optional local-development URL of the remoteEntry.json.
+   */
+  developmentEntry?: string;
 }

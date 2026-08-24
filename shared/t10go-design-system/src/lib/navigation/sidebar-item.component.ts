@@ -13,8 +13,10 @@ export class T10goSidebarItemComponent {
   readonly item = input.required<T10goNavigationItem>();
   protected readonly expanded = signal(false);
 
+  protected readonly hasChildren = (): boolean => Boolean(this.item().children?.length);
+
   protected toggleExpanded(): void {
-    if (this.item().children?.length) {
+    if (this.hasChildren()) {
       this.expanded.update((value) => !value);
     }
   }

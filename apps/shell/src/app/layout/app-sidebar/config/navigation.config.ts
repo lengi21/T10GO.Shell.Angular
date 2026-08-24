@@ -12,25 +12,6 @@ export const NAVIGATION_ITEMS: T10goNavigationItem[] = [
     id: 'weddings',
     label: 'Weddings',
     icon: 'church',
-    children: [
-      {
-        id: 'weddings-overview',
-        label: 'Overview',
-        icon: 'dashboard',
-        route: '/weddings',
-      },
-      {
-        id: 'weddings-guests',
-        label: 'Guests',
-        icon: 'group',
-        route: '/weddings/guests',
-      },
-      {
-        id: 'weddings-guests2',
-        label: 'Guests2',
-        icon: 'group',
-        route: '/weddings/guests2',
-      }
-    ],
+    route: '/wedding',
   },
 ];

@@ -25,10 +25,12 @@
 ## T10GO Managing Hub context
 
 - This repository is the shell workspace; `../T10GO.WeddingManager.Angular` is the wedding-manager remote workspace.
-- Preserve the working Angular Native Federation setup. Federation initializes before Angular bootstrap in `apps/shell/src/main.ts`.
+- Preserve the working Angular Native Federation setup. `apps/shell/src/main.ts` loads the manifest and initializes federation before Angular bootstrap.
+- The pre-federation path (`main.ts` and `federation.ts`) must not statically import Angular or workspace libraries; bootstrap Angular only through the existing dynamic import after `initFederation` completes.
 - Do not replace Native Federation, alter sharing settings, or casually modify `apps/shell/public/config/manifest.json`.
 - `shared/t10go-design-system` owns reusable controls, form foundations, theme tokens, sidebar navigation, and context-menu primitives. Shell code composes these primitives rather than duplicating them.
 - The sidebar is fixed left: content reserves its collapsed width and hover/focus expansion overlays content. Nested navigation expansion is independent per item.
+- Wedding Manager owns its exposed `WEDDING_MANAGER_ROUTES` and `WEDDING_MANAGER_NAVIGATION_ITEMS`; the shell owns the Weddings parent item and shared sidebar rendering. Keep both remote exposures aligned when adding a Wedding Manager feature route.
 - Use `--app-header-height`, `--app-sidebar-collapsed-width`, `--app-sidebar-expanded-width`, `--app-layout-edge-space`, `--app-layout-floating-radius`, and `--app-sidebar-content-offset` for layout. Do not add duplicate hard-coded values.
 - The header has rounded lower corners and the sidebar is a vertically centered floating rail. Reuse this visual language and its tokens for future floating layout surfaces.
 - New single-value inputs extend `T10goInputBase<T>` and use `T10goFieldComponent`. Build multi-select independently when needed.

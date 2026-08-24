@@ -40,9 +40,11 @@ AGENTS.md                      Guidance for future coding agents
 
 ### Federation
 
-The shell is a Native Federation dynamic host. `apps/shell/src/main.ts` initializes federation before Angular bootstraps; preserve that order.
+The shell is a Native Federation dynamic host. `apps/shell/src/main.ts` loads the federation manifest and initializes federation before Angular bootstraps; preserve that order.
 
-`apps/shell/public/config/manifest.json` describes the wedding-manager remote contract. The current shell source initializes federation without loading this manifest at runtime, so validate the deployed remote and both repositories before changing remote route, expose, or slot behavior. Do not replace Native Federation or alter sharing settings casually.
+The pre-federation path (`main.ts` and `federation.ts`) must not statically import Angular or workspace libraries. Native Federation must establish the import map before Angular is dynamically imported by `bootstrap.ts`.
+
+`apps/shell/public/config/manifest.json` describes the wedding-manager remote contract. `developmentEntry` targets `http://localhost:4201/remoteEntry.json`; `entry` targets the deployed remote. The shell loads the remote `./routes` exposure under `/wedding` and the remote `./navigation` exposure for Wedding Manager child navigation. Do not replace Native Federation or alter sharing settings casually.
 
 ### Layout and navigation
 
@@ -64,6 +66,12 @@ The header has rounded lower corners. The sidebar is a rounded, vertically cente
 ### Theme and user menu
 
 `ThemeService` owns the `system`, `light`, and `dark` modes. It persists the preference and applies the resolved mode to the document. The user menu uses design-system context-menu and dropdown components; its Settings link targets `/settings`.
+
+### Remote-owned Wedding Manager navigation
+
+The shell owns the `Weddings` parent item and the shared sidebar rendering. Wedding Manager owns and exposes its child item list and routes. The shell dynamically loads `WEDDING_MANAGER_NAVIGATION_ITEMS` from `./navigation` and inserts it beneath Weddings. Clicking Weddings navigates to `/wedding` and expands its loaded child list.
+
+When adding a Wedding Manager route, update both its exposed `WEDDING_MANAGER_ROUTES` and its exposed `WEDDING_MANAGER_NAVIGATION_ITEMS` in the remote repository.
 
 ### Design system
 

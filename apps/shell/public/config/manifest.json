@@ -12,7 +12,8 @@
 
       "remote": {
         "name": "wedding-manager",
-        "entry": "https://test-wedding.t10go.com/remoteEntry.json"
+        "entry": "https://test-wedding.t10go.com/remoteEntry.json",
+        "developmentEntry": "http://localhost:4201/remoteEntry.json"
       },
 
       "routes": [
@@ -26,6 +27,10 @@
       ],
 
       "exposes": {
+        "navigation": {
+          "exposedModule": "./navigation",
+          "exportName": "WEDDING_MANAGER_NAVIGATION_ITEMS"
+        },
         "calculator": {
           "exposedModule": "./WeddingCalculator",
           "exportName": "WeddingCalculatorComponent"

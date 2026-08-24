@@ -53,6 +53,8 @@ Dropdown options use `{ value, label, disabled? }`. For async single-select data
 
 It uses Material Icon font names when an item has an `icon` value. It is a vertically centered floating rail; consumers can override `--app-layout-edge-space`, `--app-layout-floating-radius`, `--t10go-sidebar-collapsed-width`, and `--t10go-sidebar-expanded-width`.
 
+The component accepts ordinary `T10goNavigationItem` data, including items dynamically supplied by a federated remote. The shell owns the parent item and rendering; remotes should expose child items compatible with this shape.
+
 ## Context menu
 
 `T10goContextMenuComponent` provides an accessible dismissal behavior for projected trigger and panel content. It closes on outside click and Escape.

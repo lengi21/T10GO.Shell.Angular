@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { T10goSidebarComponent } from '@t10go-design-system';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
+import { loadRemoteModule } from '@angular-architects/native-federation';
+import { T10goNavigationItem, T10goSidebarComponent } from '@t10go-design-system';
 
 import { NAVIGATION_ITEMS } from './config/navigation.config';
 
@@ -10,6 +11,21 @@ import { NAVIGATION_ITEMS } from './config/navigation.config';
   styleUrl: './app-sidebar.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppSidebar {
-  readonly navigationItems = NAVIGATION_ITEMS;
+export class AppSidebar implements OnInit {
+  readonly navigationItems = signal<readonly T10goNavigationItem[]>(NAVIGATION_ITEMS);
+
+  async ngOnInit(): Promise<void> {
+    try {
+      const remote = await loadRemoteModule('wedding-manager', './navigation');
+      const children = remote.WEDDING_MANAGER_NAVIGATION_ITEMS as readonly T10goNavigationItem[];
+
+      this.navigationItems.update((items) =>
+        items.map((item) =>
+          item.id === 'weddings' ? { ...item, children } : item,
+        ),
+      );
+    } catch (error) {
+      console.error('Failed to load Wedding Manager navigation', error);
+    }
+  }
 }
