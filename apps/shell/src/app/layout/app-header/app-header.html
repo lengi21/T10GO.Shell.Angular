@@ -36,14 +36,10 @@
       </span>
     </button>
     <div t10goContextMenuContent class="app-header__menu" aria-label="User preferences">
-      <t10go-slider
+      <t10go-dropdown
         label="Theme"
-        [value]="themePosition()"
-        [min]="0"
-        [max]="2"
-        [step]="1"
-        [showValue]="true"
-        [valueFormatter]="formatTheme"
+        [value]="themeService.theme()"
+        [options]="themeOptions"
         (valueChange)="setTheme($event)"
       />
 

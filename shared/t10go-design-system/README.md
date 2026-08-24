@@ -25,6 +25,22 @@ Inputs: `value`, `min`, `max`, `step`, `disabled`, `label`, `ariaLabel`, `id`, `
 
 For a form control, use `formControlName` or `[(ngModel)]`. Consumers can customize the component through `--t10go-slider-track-color`, `--t10go-slider-fill-color`, `--t10go-slider-thumb-color`, `--t10go-slider-focus-color`, and `--t10go-slider-disabled-opacity`.
 
+## Form foundation and dropdown
+
+`T10goInputBase` centralizes single-value Angular form integration, disabled state, generated IDs, names, required state, and two-way `value` binding. New controls should extend it instead of implementing `ControlValueAccessor` independently.
+
+`T10goFieldComponent` is the shared visual field shell for labels, hints, required indicators, and error messages. `T10goDropdownComponent` is the first control built on these foundations.
+
+```html
+<t10go-dropdown
+  label="Theme"
+  [options]="themeOptions"
+  [(value)]="theme"
+/>
+```
+
+Dropdown options use `{ value, label, disabled? }`. For async single-select data, provide an `optionsLoader` function returning `Promise<readonly T10goDropdownOption[]>`; `reloadOptions()` is available for explicit refreshes. Multi-select remains a separate future component.
+
 ## Navigation
 
 `T10goSidebarComponent` renders a fixed, hover/focus-expanded sidebar. Pass it a tree of `T10goNavigationItem` values; any item with children has its own vertical expand/collapse state.
