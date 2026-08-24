@@ -54,7 +54,12 @@ Use the global layout variables defined in `shared/t10go-design-system/src/style
 --app-header-height: 45px;
 --app-sidebar-collapsed-width: 45px;
 --app-sidebar-expanded-width: 280px;
+--app-layout-edge-space: var(--app-space-3);
+--app-layout-floating-radius: var(--app-radius-xl);
+--app-sidebar-content-offset: calc(...);
 ```
+
+The header has rounded lower corners. The sidebar is a rounded, vertically centered floating rail on the left. Content uses `--app-sidebar-content-offset` so the collapsed rail and its outer gutter never cover page content.
 
 ### Theme and user menu
 

@@ -2,7 +2,7 @@
 
 Shared, theme-aware standalone Angular components and services for T10GO applications.
 
-Global layout tokens: `--app-header-height`, `--app-sidebar-collapsed-width`, and `--app-sidebar-expanded-width`.
+Global layout tokens: `--app-header-height`, `--app-sidebar-collapsed-width`, `--app-sidebar-expanded-width`, `--app-layout-edge-space`, `--app-layout-floating-radius`, and `--app-sidebar-content-offset`.
 
 ## Slider
 
@@ -51,7 +51,7 @@ Dropdown options use `{ value, label, disabled? }`. For async single-select data
 <t10go-sidebar [items]="navigationItems" ariaLabel="Main navigation" />
 ```
 
-It uses Material Icon font names when an item has an `icon` value. Consumers can override `--t10go-sidebar-collapsed-width` and `--t10go-sidebar-expanded-width`.
+It uses Material Icon font names when an item has an `icon` value. It is a vertically centered floating rail; consumers can override `--app-layout-edge-space`, `--app-layout-floating-radius`, `--t10go-sidebar-collapsed-width`, and `--t10go-sidebar-expanded-width`.
 
 ## Context menu
 

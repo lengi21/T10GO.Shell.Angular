@@ -29,6 +29,7 @@
 - Do not replace Native Federation, alter sharing settings, or casually modify `apps/shell/public/config/manifest.json`.
 - `shared/t10go-design-system` owns reusable controls, form foundations, theme tokens, sidebar navigation, and context-menu primitives. Shell code composes these primitives rather than duplicating them.
 - The sidebar is fixed left: content reserves its collapsed width and hover/focus expansion overlays content. Nested navigation expansion is independent per item.
-- Use `--app-header-height`, `--app-sidebar-collapsed-width`, and `--app-sidebar-expanded-width` for dimensions. Do not add duplicate hard-coded values.
+- Use `--app-header-height`, `--app-sidebar-collapsed-width`, `--app-sidebar-expanded-width`, `--app-layout-edge-space`, `--app-layout-floating-radius`, and `--app-sidebar-content-offset` for layout. Do not add duplicate hard-coded values.
+- The header has rounded lower corners and the sidebar is a vertically centered floating rail. Reuse this visual language and its tokens for future floating layout surfaces.
 - New single-value inputs extend `T10goInputBase<T>` and use `T10goFieldComponent`. Build multi-select independently when needed.
 - Record durable decisions in `HISTORY.md` and update `README.md` when the architecture, commands, or project structure changes.

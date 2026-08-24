@@ -18,6 +18,9 @@
   color: var(--app-text-primary);
 
   border-bottom: 1px solid var(--app-border);
+  border-bottom-right-radius: var(--app-layout-floating-radius);
+  border-bottom-left-radius: var(--app-layout-floating-radius);
+  box-shadow: var(--app-shadow-sm);
 }
 
 .app-header__brand {

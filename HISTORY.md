@@ -42,6 +42,14 @@ This is a decision log, not a release changelog. Add an entry when a change affe
 
 **Impact:** Content reserves the collapsed sidebar width. Expansion overlays content rather than shrinking it. Use variables, not literal dimensions.
 
+## 2026-08-24 — Floating rounded layout surfaces
+
+**Decision:** The header uses rounded lower corners, and the sidebar is a vertically centered, rounded floating rail on the left.
+
+**Reason:** The shell uses a softer, floating desktop-surface visual language.
+
+**Impact:** `--app-layout-edge-space`, `--app-layout-floating-radius`, and `--app-sidebar-content-offset` are the shared tokens for this treatment. New floating surfaces should use these tokens rather than introducing unrelated edge spacing or radii.
+
 ## 2026-08-24 — Shared input foundation and theme dropdown
 
 **Decision:** `T10goInputBase<T>` and `T10goFieldComponent` are the foundation for reusable single-value controls. The header theme choice uses `T10goDropdownComponent` with `system`, `light`, and `dark` options.
@@ -65,4 +73,3 @@ This is a decision log, not a release changelog. Add an entry when a change affe
 **Reason:** It centralizes remote routes, exposes, navigation, and slots.
 
 **Impact:** The checked-in shell does not currently load this manifest during `initFederation`, and the local remote source may not expose every manifest entry. Verify the deployed remote’s `remoteEntry.json` and align both repositories before enabling or changing dynamic route/slot loading.
-
