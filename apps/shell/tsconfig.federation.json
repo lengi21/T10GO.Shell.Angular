@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.app.json",
   "files": [
-    "../../shared/t10go-icons/src/index.ts"
+    "src/main.ts"
   ],
   "include": [
     "src/**/*.d.ts"
