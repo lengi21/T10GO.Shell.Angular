@@ -21,3 +21,14 @@
 - The `nx-generate` skill handles generator discovery internally - don't call nx_docs just to look up generator syntax
 
 <!-- nx configuration end-->
+
+## T10GO Managing Hub context
+
+- This repository is the shell workspace; `../T10GO.WeddingManager.Angular` is the wedding-manager remote workspace.
+- Preserve the working Angular Native Federation setup. Federation initializes before Angular bootstrap in `apps/shell/src/main.ts`.
+- Do not replace Native Federation, alter sharing settings, or casually modify `apps/shell/public/config/manifest.json`.
+- `shared/t10go-design-system` owns reusable controls, form foundations, theme tokens, sidebar navigation, and context-menu primitives. Shell code composes these primitives rather than duplicating them.
+- The sidebar is fixed left: content reserves its collapsed width and hover/focus expansion overlays content. Nested navigation expansion is independent per item.
+- Use `--app-header-height`, `--app-sidebar-collapsed-width`, and `--app-sidebar-expanded-width` for dimensions. Do not add duplicate hard-coded values.
+- New single-value inputs extend `T10goInputBase<T>` and use `T10goFieldComponent`. Build multi-select independently when needed.
+- Record durable decisions in `HISTORY.md` and update `README.md` when the architecture, commands, or project structure changes.
