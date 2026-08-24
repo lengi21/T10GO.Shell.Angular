@@ -96,3 +96,9 @@ This is a decision log, not a release changelog. Add an entry when a change affe
 **Impact:** Local duplicate Design System, environment-loader, and federation-contract libraries are removed. Shared changes are made and released from `T10GO.Shared.Angular`.
 
 **Cleanup:** Removed stale Nx starter-library path mappings that referenced directories absent from the shell workspace.
+
+## 2026-08-24 — Palette selection in user preferences
+
+**Decision:** The header user menu uses the shared swatch dropdown to select a persisted light/dark palette.
+
+**Impact:** Palette names and their four representative colors are visible before selection.

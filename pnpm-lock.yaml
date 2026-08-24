@@ -42,8 +42,8 @@ importers:
         specifier: 0.1.0
         version: 0.1.0
       '@lengi21/t10go-design-system':
-        specifier: 0.1.0
-        version: 0.1.0(8faa87996ab52ab330ef8e5da757da00)
+        specifier: 0.1.2
+        version: 0.1.2(8faa87996ab52ab330ef8e5da757da00)
       '@lengi21/t10go-env-loader':
         specifier: 0.1.0
         version: 0.1.0(@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)(zone.js@0.16.2))
@@ -2512,8 +2512,8 @@ packages:
   '@lengi21/federation-contracts@0.1.0':
     resolution: {integrity: sha512-E02FKW90rHM5BRTOztuVCzSkWICQ2uvN+3ASgxPIVMYdbagbtUFd8sHWbm3qBZSnXI+uW+fQWtcqKMZoerkf2A==, tarball: https://npm.pkg.github.com/download/@lengi21/federation-contracts/0.1.0/de601052b21000aea4c2a8f0750cd9d466f3a69e}
 
-  '@lengi21/t10go-design-system@0.1.0':
-    resolution: {integrity: sha512-F7ETJt1yTA+7Wr2kqQ2ghIx/c31nuby/ZymcfDsP8JFXNe744XQYOzVoRmFTqDLsEo2K4L7NQ/bhh993+dymgg==, tarball: https://npm.pkg.github.com/download/@lengi21/t10go-design-system/0.1.0/fd61c922c294fb0f1f5b44e860d8b2942903714d}
+  '@lengi21/t10go-design-system@0.1.2':
+    resolution: {integrity: sha512-ocU/Yzv7mSo9mupTef6PZNhVz9gAJFPu/pgBpsRGPYN+Jqz3q+O+of0GkQF/xe1ocVW6uN0usvb0lNcSB3KB/Q==, tarball: https://npm.pkg.github.com/download/@lengi21/t10go-design-system/0.1.2/f73f79cb8dc050e6a38d03ebbc3f9fdcc346ce2a}
     peerDependencies:
       '@angular/common': ^22.0.0
       '@angular/core': ^22.0.0
@@ -11803,7 +11803,7 @@ snapshots:
 
   '@lengi21/federation-contracts@0.1.0': {}
 
-  '@lengi21/t10go-design-system@0.1.0(8faa87996ab52ab330ef8e5da757da00)':
+  '@lengi21/t10go-design-system@0.1.2(8faa87996ab52ab330ef8e5da757da00)':
     dependencies:
       '@angular/common': 22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2)
       '@angular/core': 22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)(zone.js@0.16.2)

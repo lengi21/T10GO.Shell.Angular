@@ -36,6 +36,12 @@
       </span>
     </button>
     <div t10goContextMenuContent class="app-header__menu" aria-label="User preferences">
+      <t10go-swatch-dropdown
+        label="Palette"
+        [value]="themeService.palette()"
+        [options]="paletteOptions"
+        (valueChange)="setPalette($event)"
+      />
       <t10go-dropdown
         label="Theme"
         [value]="themeService.theme()"

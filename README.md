@@ -63,7 +63,7 @@ The header has rounded lower corners. The sidebar is a rounded, vertically cente
 
 ### Theme and user menu
 
-`ThemeService` owns the `system`, `light`, and `dark` modes. It persists the preference and applies the resolved mode to the document. The user menu uses design-system context-menu and dropdown components; its Settings link targets `/settings`.
+`ThemeService` owns the `system`, `light`, and `dark` modes and the selected palette. It persists both preferences and applies the resolved theme and palette to the document. The user menu exposes **Indigo & Teal**, **Evergreen & Clay**, and **Sage & Gold** with visible color swatches; its Settings link targets `/settings`.
 
 ### Remote-owned Wedding Manager navigation
 
