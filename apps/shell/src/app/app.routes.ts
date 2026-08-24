@@ -29,7 +29,7 @@ export const appRoutes: Route[] = [
         path: 'wedding',
         loadChildren: () =>
           loadRemoteModule('wedding-manager', './routes').then(
-            (remote) => remote.WEDDING_MANAGER_ROUTES,
+            (remote) => remote.loadWeddingManagerRoutes(),
           ),
       },
       { path: '', pathMatch: 'full', redirectTo: 'wedding/dashboard' },
